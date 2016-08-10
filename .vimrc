@@ -4,30 +4,19 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-surround'
 "Plugin 'valloric/youcompleteme'
-
 call vundle#end()            " required
+
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
 
 let g:syntastic_perl_checkers = ['podchecker']
 "let g:syntastic_perl_checkers = ['perl', 'podchecker']
@@ -35,7 +24,7 @@ let g:syntastic_perl_checkers = ['podchecker']
 
 "autocmd vimenter * NERDTree		" open directory tree in vim
 
-set showtabline=2	" always show tab bar
+"set showtabline=2	" always show tab bar
 
 "set nowrap
 set number			" show line numbers
