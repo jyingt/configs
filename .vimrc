@@ -61,7 +61,6 @@ function! PerforceEdit()
     if answer == "y"
         call system("p4 edit " . expand("%"))
         w!
-        e!
     endif
 endfunction
 
@@ -75,13 +74,17 @@ function! PerforceRevert()
     endif
 endfunction
 
-noremap <C-a> :call PerforceAdd()<CR>
-noremap <C-e> :call PerforceEdit()<CR>
-noremap <C-x> :call PerforceRevert()<CR>
+noremap <C-a>a :call PerforceAdd()<CR>
+noremap <C-a>e :call PerforceEdit()<CR>
+noremap <C-a>r :call PerforceRevert()<CR>
 
 "-------------------------------------------------------------------------------
 " Customization
 "-------------------------------------------------------------------------------
+" Set highlighted column for 80 column width
+highlight ColorColumn ctermbg=235
+let &colorcolumn=80
+
 " Set shortcuts for buffer controls
 nnoremap <F2> :bprevious<CR>
 nnoremap <F3> :bnext<CR>
@@ -104,6 +107,7 @@ set expandtab tabstop=4 shiftwidth=4
 autocmd FileType javascript setlocal noexpandtab
 autocmd FileType perl setlocal noexpandtab
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
+autocmd FileType text setlocal noexpandtab
 
 " Indent lines automatically
 set autoindent smartindent
