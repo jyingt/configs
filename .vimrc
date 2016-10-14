@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dracula/vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'pangloss/vim-javascript'
@@ -98,16 +99,13 @@ nnoremap <C-H> <C-W><C-H>
 
 " Set syntax highlighting 
 syntax on
-autocmd BufReadPost *.esp set syntax=perl
-autocmd BufReadPost *.less set syntax=css
-autocmd BufReadPost *.whiskers set syntax=html
+au BufRead,BufNewFile *.esp setfiletype perl
+au BufRead,BufNewFile *.less setfiletype css
+au BufRead,BufNewFile *.whiskers setfiletype html
 
-" Set indenting (default: spaces, 4)
-set expandtab tabstop=4 shiftwidth=4
-autocmd FileType javascript setlocal noexpandtab
-autocmd FileType perl setlocal noexpandtab
-autocmd FileType ruby setlocal tabstop=2 shiftwidth=2
-autocmd FileType text setlocal noexpandtab
+" Set indenting (default: tabs, 4)
+set tabstop=4 shiftwidth=4
+autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2
 
 " Indent lines automatically
 set autoindent smartindent
