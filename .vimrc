@@ -10,33 +10,16 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'dracula/vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'townk/vim-autoclose'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 
 filetype plugin indent on
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_perl_checkers = ['perlcritic', 'podchecker']
-" let g:syntastic_enable_javascript_checker = 1
-" let g:syntastic_enable_perl_checker = 1
-
-" tagbar
-let g:tagbar_ctags_bin = "/usr/bin/ctags"
-nmap <F8> :TagbarToggle<CR>
+" nerdcommenter
+let mapleader = ","
+let g:NERDSpaceDelims = 1
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -75,9 +58,9 @@ function! PerforceRevert()
     endif
 endfunction
 
-noremap <C-a>a :call PerforceAdd()<CR>
-noremap <C-a>e :call PerforceEdit()<CR>
-noremap <C-a>r :call PerforceRevert()<CR>
+" noremap <C-a>a :call PerforceAdd()<CR>
+" noremap <C-a>e :call PerforceEdit()<CR>
+" noremap <C-a>r :call PerforceRevert()<CR>
 
 "-------------------------------------------------------------------------------
 " Customization
@@ -99,22 +82,13 @@ nnoremap <C-H> <C-W><C-H>
 
 " Set syntax highlighting 
 syntax on
-au BufRead,BufNewFile *.esp setfiletype perl
-au BufRead,BufNewFile *.less setfiletype css
-au BufRead,BufNewFile *.whiskers setfiletype html
 
-" Set indenting (default: tabs, 4)
-set tabstop=4 shiftwidth=4
-autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2
-
-" Indent lines automatically
-set autoindent smartindent
+" Set indenting (default: spaces, 4)
+set tabstop=4 shiftwidth=4 expandtab autoindent smartindent
+autocmd FileType html setlocal tabstop=2 shiftwidth=2
 
 " Use smart case in search
 set ignorecase smartcase
-
-" Open new panes to the right and bottom
-set splitbelow splitright
 
 " Show line numbers
 set number
@@ -125,8 +99,8 @@ set showtabline=2
 " Show status bar always
 set laststatus=2
 
-" Hide unsaved buffers when opening new ones
-set hidden
-
 " Enable mouse
 set mouse=a
+
+" Hide unsaved buffers when opening new ones
+set hidden
