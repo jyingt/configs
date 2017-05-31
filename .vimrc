@@ -11,7 +11,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dracula/vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-autoclose'
@@ -36,7 +35,7 @@ let g:airline_powerline_fonts = 1
 colorscheme dracula
 
 " Set font
-set guifont=Inconsolata-dz\ for\ Powerline
+set guifont=Inconsolata-dz\ for\ Powerline:h12
 
 " Set highlighted column for 80 column width
 let &colorcolumn=80
@@ -44,6 +43,8 @@ let &colorcolumn=80
 " Set shortcuts for buffer controls
 nnoremap <F2> :bprevious<CR>
 nnoremap <F3> :bnext<CR>
+
+" Set shortcut for line numbers
 nnoremap <F4> :set number!<CR>
 
 " Set shortcuts for window controls
